@@ -1,0 +1,12 @@
+version: "3.3"
+services: 
+    Nodejs:
+        image: mariadb
+        ports:
+            - "3306:3306"
+        environment: 
+            - MYSQL_ROOT_PASSWORD=1234567
+            - MYSQL_USER=carlosaguero
+            - MYSQL_PASSWORD=0987654321
+        volumes:
+            - "./config:/etc/mysql/conf.d" 
