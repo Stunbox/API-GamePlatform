@@ -2,7 +2,7 @@
 Api en node.js para simular una plataforma de algun juego
 
 ## Intrucciones de uso
-- Api en nodejs
+- Api en nodejs - 
 Se necesita tener instalado nodejs en el ordenador, ya que lo necesitaremos para inicializar el api,
 1._ Situarse dentro de la carpeta "Nodejs" desde la consola y correr el comando: node .
 2._ Solo eso se necesita respecto al api (y dejar abierta la consola)
