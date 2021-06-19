@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 
 //My sql
 const connection = mysql.createConnection({
-    host: '192.168.99.102',
-    user: 'root',
-    password: '1234567',
+    host: 'gameplatform.cwhbwaghxtul.us-east-2.rds.amazonaws.com',
+    user: 'admin',
+    password: '12345678',
     database: 'nodejsDB'
 });
 

@@ -105,29 +105,7 @@ public class NetworkDownloader : MonoBehaviour
     }
     public void UpdateCoins(int coins)
     {
-        string playerName = PlayerPrefs.GetString("PlayerName");
-        int id = -1;
-        foreach (User player in usersList)
-        {
-            if (playerName == player.name)
-            {
-                id = player.id;
-            }
-        }
-        if (id != -1)
-        {
-            string urlPutUserCustom = urlPutUser + id.ToString();
-
-            User user = new User();
-            user.id = id;
-            user.name = playerName;
-            user.coins = coins;
-            StartCoroutine(UpdateUser(user, urlPutUserCustom));
-        }else{
-            Debug.Log("No player founded");
-        }
-
-
+        StartCoroutine(UpdateUserList(urlLeaderboard,coins));
     }
     IEnumerator UpdateUser(User user, string urlCustom)
     {
@@ -150,6 +128,67 @@ public class NetworkDownloader : MonoBehaviour
             {
                 Debug.Log("User updated!");
             }
+        }
+    }
+    IEnumerator UpdateUserList(string uri,int coins)
+    {
+        //test
+        //https://homeinteriors.s3-us-west-2.amazonaws.com/showroom-360-home-interiors/test.json
+        //https://firebasestorage.googleapis.com/v0/b/fusevictoriatest.appspot.com/o/escenas_hi_2021-04-16.json?alt=media&token=914bbad7-bc7a-480f-9f80-627d22d12c60
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            if (webRequest.isNetworkError)
+            {
+                Debug.Log(pages[page] + ": Error: " + webRequest.error);
+            }
+            else
+            {
+
+                var jsonInfo = webRequest.downloadHandler.text;
+                Debug.Log(pages[page] + ":\nReceived: " + jsonInfo);
+                setInformationDataSetByJsonList(jsonInfo);
+                UpdateUserWithNewList(coins);
+            }
+        }
+    }
+    public void setInformationDataSetByJsonList(string jsonInfo)
+    {
+        usersList = new List<User>();
+        User[] currentUsers = JsonHelper.FromJson<User>(jsonInfo);
+        User[] element = currentUsers;
+        usersList.AddRange(element);
+        usersList.Sort((x, y) => y.coins.CompareTo(x.coins));
+    }
+    public void UpdateUserWithNewList(int coins)
+    {
+        string playerName = PlayerPrefs.GetString("PlayerName");
+        int id = -1;
+        foreach (User player in usersList)
+        {
+            if (playerName == player.name)
+            {
+                id = player.id;
+            }
+        }
+        if (id != -1)
+        {
+            string urlPutUserCustom = urlPutUser + id.ToString();
+
+            User user = new User();
+            user.id = id;
+            user.name = playerName;
+            user.coins = coins;
+            StartCoroutine(UpdateUser(user, urlPutUserCustom));
+        }
+        else
+        {
+            Debug.Log("No player founded");
         }
     }
 }
