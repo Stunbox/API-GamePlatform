@@ -19,7 +19,7 @@ Para poder jugar sera necesario tener instalado unity en el ordenador y agregar 
 1._ instalar unity hub desde la pagina oficial de unity <br>
 2._ una vez abierto unity hub nos vamos al apartado de "installs" que se encuentra a la izquierda en las opciones, y instalamos una version de unity, si es posible, la 2020.3.6f1, si no aparece, elegimos la mas reciente. En las opciones de descarga elegimos android, ya que lo necesitaremos para el proyecto.<br>
 3._ una vez obtenida la version, nos dirigimos al apartado de projects y pulsamos el boton "Add" y ahi elegiremos la carpeta que se encuentra en el repositorio llamada UnityProyect<br>
-4. Presionamos sobre el proyecto y esperamos que se habra<br>
-5. Una vez abierto el editor, switcheamos de plataforma a android, ya que por default es en pc pero el juego no esta desarrollado para pc, para eso nos vamos a las ventanas de arriba: File > Build Settings, una vez abierta la ventana elegimos la opcion android que se encuentra en la lista de la izquiera, y aparecera un boton abajo a la derecha que dira "switch platform" y esperamos a que haga el cambio<br>
-6. Una vez se hallan realizado todos los pasos estamos listos para jugar, ahora solo presionaremos el boton de play que es el simbolo tipico ">" que se encuentra en la parte superior enmedio.<br>
+4._ Presionamos sobre el proyecto y esperamos que se habra<br>
+5._ Una vez abierto el editor, switcheamos de plataforma a android, ya que por default es en pc pero el juego no esta desarrollado para pc, para eso nos vamos a las ventanas de arriba: File > Build Settings, una vez abierta la ventana elegimos la opcion android que se encuentra en la lista de la izquiera, y aparecera un boton abajo a la derecha que dira "switch platform" y esperamos a que haga el cambio<br>
+6._ Una vez se hallan realizado todos los pasos estamos listos para jugar, ahora solo presionaremos el boton de play que es el simbolo tipico ">" que se encuentra en la parte superior enmedio.<br>
 
