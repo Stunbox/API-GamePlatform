@@ -1,5 +1,5 @@
 # API-GamePlatform
-Api en node.js para simular una plataforma de algun juego
+Api desarrollada en Node.js que consulta una base de datos RDS con la finalidad de subir, actualizar o borrar puntuaciones desde un videojuego . Incluye un proyecto de ejemplo desarrollado en Unity con C#
 
 ## Intrucciones de uso
 - Api en nodejs - <br>
